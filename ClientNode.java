@@ -1,12 +1,11 @@
 // ClientNode.java
 public class ClientNode {
     private String id;
-    private ServerNode server;
+    private ServerNode serverNode;
 
-    public ClientNode(String id, ServerNode server) {
+    public ClientNode(String id, ServerNode serverNode) {
         this.id = id;
-        this.server = server;
-        server.addClient(this);
+        this.serverNode = serverNode;
     }
 
     // Add this method to return the client's ID
@@ -14,11 +13,11 @@ public class ClientNode {
         return id;
     }
 
-    public void send(String message, ClientNode receiver) {
-        server.sendMessage(this, message, receiver);
+    public void sendMessage(String message, ClientNode receiver) {
+        serverNode.sendMessage(this, message, receiver);
     }
 
     public void receive(String message, String senderId) {
-        System.out.println("Client " + senderId + " sends: " + message);
+        System.out.println("Message from " + senderId + ": " + message);
     }
 }

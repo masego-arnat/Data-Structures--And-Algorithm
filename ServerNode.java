@@ -17,6 +17,10 @@ public class ServerNode {
     }
 
     public void sendMessage(ClientNode sender, String message, ClientNode receiver) {
-        receiver.receive(message, sender.getId());
+        if (clients.contains(receiver)) {
+            receiver.receive(message, sender.getId());
+        } else {
+            System.out.println("Receiver not found in the client list.");
+        }
     }
 }
