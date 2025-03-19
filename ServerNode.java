@@ -1,26 +1,26 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ServerNode {
-    private List<ClientNode> clients;
+    private Map<String, ClientNode> clients; // Maps client ID to ClientNode object
 
     public ServerNode() {
-        clients = new ArrayList<>();
+        clients = new HashMap<>();
     }
 
-    public void addClient(ClientNode client) {
-        clients.add(client);
+    public void registerClient(ClientNode client) {
+        clients.put(client.getId(), client);
     }
 
-    public void removeClient(ClientNode client) {
-        clients.remove(client);
+    public void removeClient(String clientId) {
+        clients.remove(clientId);
     }
 
-    public void sendMessage(ClientNode sender, String message, ClientNode receiver) {
-        if (clients.contains(receiver)) {
-            receiver.receive(message, sender.getId());
+    public void sendMessage(String senderId, String receiverId, String message) {
+        if (clients.containsKey(receiverId)) {
+            clients.get(receiverId).receive(senderId, message);
         } else {
-            System.out.println("Receiver not found in the client list.");
+            System.out.println("Client " + receiverId + " not found in network.");
         }
     }
 }

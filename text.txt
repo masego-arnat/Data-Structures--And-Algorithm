@@ -1,0 +1,8 @@
+Complexity Analysis
+Worst-Case Time Complexity of Huffman Coding
+Building Frequency Map → O(n)
+Building Huffman Tree → O(n log n)
+Generating Codes → O(n)
+Encoding Message → O(n)
+Decoding Message → O(n)
+Total Worst-Case Complexity: O(n log n) (due to priority queue operations).
