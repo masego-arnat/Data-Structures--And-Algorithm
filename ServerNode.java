@@ -1,11 +1,16 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ServerNode {
+    private String serverId;
+    private List<ClientNode> connectedClients;
     private Map<String, ClientNode> clients; // Maps client ID to ClientNode object
 
     public ServerNode() {
         clients = new HashMap<>();
+          this.connectedClients = new ArrayList<>();  // Initialize the list
     }
 
     public void registerClient(ClientNode client) {
@@ -27,4 +32,11 @@ public class ServerNode {
     public boolean clientExists(String clientId) {
         return clients.containsKey(clientId);
     }
+
+    public String getServerDetails() {
+        return "Server ID: " + serverId + ", Number of connected clients: " + connectedClients.size();
+    }
+
+
+
 }

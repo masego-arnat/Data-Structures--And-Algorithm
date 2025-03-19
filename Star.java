@@ -6,8 +6,15 @@ public class Star {
     private List<ClientNode> clients;
 
     public Star() {
+        // Purpose: It initializes the central server for the network. 
+        // This server will be responsible for managing the communication between clients,
+        //  including registering
+        //  and removing clients, and possibly handling messages.
         server = new ServerNode();  // Create the central server
-        clients = new ArrayList<>();
+        // Purpose: This list will hold the ClientNode objects.
+        //  Each client will be added to this list as the network grows,
+        //  and the server will interact with these clients.
+        clients = new ArrayList<>(); // Initialize the list of clients
     }
 
     public ClientNode insertNode(String clientId) {

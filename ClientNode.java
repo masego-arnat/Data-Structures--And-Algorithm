@@ -41,4 +41,14 @@ public class ClientNode {
         System.out.println("Message from " + senderId + " to " + id + ": " + decompressedMessage);
     
     }
+
+   // Optionally, if you need a detailed server output for the client
+   public String getClientDetails() {
+    return "Client ID: " + id + ", Server: " + server.getServerDetails();
+}
+
+
+
+
+
 }
