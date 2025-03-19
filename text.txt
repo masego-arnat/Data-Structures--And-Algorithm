@@ -6,3 +6,17 @@ Generating Codes → O(n)
 Encoding Message → O(n)
 Decoding Message → O(n)
 Total Worst-Case Complexity: O(n log n) (due to priority queue operations).
+
+
+
+
+
+
+
+
+
+using Huffman coding would reduce the size of the message before sending it over the network, making it more efficient and reducing bandwidth consumption. 
+It could be especially helpful in scenarios with many clients exchanging large amounts of text data, as Huffman coding would minimize the overhead on each message sent.
+
+In summary, Huffman coding is used primarily to reduce data size while preserving data integrity, and it is valuable in contexts where reducing transmission time, saving bandwidth, 
+or conserving storage is essential.
