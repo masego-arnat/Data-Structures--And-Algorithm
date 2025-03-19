@@ -23,4 +23,8 @@ public class ServerNode {
             System.out.println("Client " + receiverId + " not found in network.");
         }
     }
+
+    public boolean clientExists(String clientId) {
+        return clients.containsKey(clientId);
+    }
 }

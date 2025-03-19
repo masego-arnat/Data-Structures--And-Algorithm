@@ -1,32 +1,31 @@
 public class Main {
 
     public static void main(String[] args) {
-        ServerNode server = new ServerNode();
 
-        // Create clients
-        ClientNode clientA = new ClientNode("A", server);
-        ClientNode clientB = new ClientNode("B", server);
+        Star network = new Star();  //  Create the network
 
-        // Send messages with compression
-        clientA.send("B", "Hello, B! How are you?");
+        //  Insert nodes and get references
+        ClientNode clientA = network.insertNode("A");
+        ClientNode clientB = network.insertNode("Bx");
+    
+
+        //  Send messages 
+        clientA.send("j", "Hello, B! How are you?");
         clientB.send("A", "Hey A, I'm good. How about you?");
+        // The sender is clientB, as it is the one calling the send method. 
+        // Typically, send is a method used to send a message from one entity
+        //  (in this case, clientB) to another (in this case, "A").
+
+        // // So, in this specific example, clientB is sending the message to "A". 
+        // If you wanted to programmatically track or refer to the sender, it would be clientB.
+
+
+
+
+ 
     }
 
-    // public static void main(String[] args) {
-    // Star network = new Star();
-
-    // // Add clients
-    // network.insertNode("A");
-    // network.insertNode("B");
-    // network.insertNode("C");
-
-    // // Get clients (not accessible directly, so let's recreate)
-    // ClientNode clientA = new ClientNode("A", new ServerNode());
-    // ClientNode clientB = new ClientNode("B", new ServerNode());
-
-    // // Send message
-    // clientA.send("B", "Hello, B!");
-    // clientB.send("A", "Hey A, got your message.");
-    // }
+ 
+ 
 
 }
